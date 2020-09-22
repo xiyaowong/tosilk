@@ -22,27 +22,24 @@ var (
 var rootCmd = &cobra.Command{
 	Use:   "tosilk",
 	Short: "音频文件转成silk格式",
-	Long: `
-    >>>请保证 ffmpeg 命令可用<<<
+	Long: `>>>请保证 ffmpeg 命令可用<<<
+本地使用: 
 
-    本地使用: 
+1. 本地文件转换(输出base64)
+./tosilk -f test.mp3
 
-    1. 本地文件转换(输出base64)
-    ./tosilk -f test.mp3
+2. 由base64编码转换(输出base64)
+./tosilk -b base64-string
 
-    2. 由base64编码转换(输出base64)
-    ./tosilk -b base64-string
+3. 由音频下载链接转换(输出base64)
+./tosilk -u download-url
 
-    3. 由音频下载链接转换(输出base64)
-    ./tosilk -u download-url
+*如果需要直接生成本地文件, 在命令后面指定 -o 参数, 如:
+./tosilk -f test.mp3 -o test.silk
+(其他的一样)
 
-    *如果需要直接生成本地文件, 在命令后面指定 -o 参数, 如:
-    ./tosilk -f test.mp3 -o test.silk
-    (其他的一样)
-
-    开启HTTP服务:
-    ./tosilk help server查看帮助
-    `,
+开启HTTP服务:
+./tosilk help server查看帮助`,
 	Run: func(cmd *cobra.Command, args []string) {
 		var (
 			b64 string

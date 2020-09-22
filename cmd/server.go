@@ -69,11 +69,11 @@ var serverCmd = &cobra.Command{
 	Use:   "server",
 	Short: "开启HTTP服务",
 	Long: `通过--port/-p 指定HTTP监听的端口
-    向 /tosilk POST json格式的数据，其中base64和url两个字段二选一，如果都有，只选用base64
-    任何数据都没有做验证，请保证你的请求正确!
-    返回的数据格式(Json)为: { "err": "", "result": "" }
-    如果处理成功则 err 为空， result 为转换后的base64字符串
-    处理失败则 err 为错误信息`,
+向 /tosilk POST json格式的数据，其中base64和url两个字段二选一，如果都有，只选用base64
+任何数据都没有做验证，请保证你的请求正确!
+返回的数据格式(Json)为: { "err": "", "result": "" }
+如果处理成功则 err 为空， result 为转换后的base64字符串
+处理失败则 err 为错误信息`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Printf("Running on 0.0.0.0:%d\n", serverPort)
 		newRouter().Run(fmt.Sprintf(":%d", serverPort))
