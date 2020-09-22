@@ -5,7 +5,6 @@
 # Usage
 
 ```shell
-go build
 ./tosilk --help
 ```
 
